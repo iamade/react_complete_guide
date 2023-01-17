@@ -1,3 +1,4 @@
+ import React, {useState} from 'react';
  import ExpenseDate from './ExpenseDate';
  import Card from '../UI/Card'
  import './ExpenseItem.css';
@@ -7,9 +8,13 @@
     // const expenseTitle = 'Car Insurance';
     // const expenseAmount = 294.67;
 
-    let title = props.title;
+    const [title, setTitle] = useState(props.title);
+    console.log('ExpenseItem evaluated by React');
+    // let title = props.title;
    const clickHandler = () => {
-    console.log('Clicked!!!!');
+    setTitle('Updated!')
+    // title = 'Updated!'
+    console.log(title);
    }
 
     return (
@@ -21,7 +26,7 @@
             <h2>{title}</h2>
             <div className='expense-item__price'>${props.amount}</div>
         </div>
-        <button onClick={clickHandler}></button>
+        <button onClick={clickHandler}>Change Title</button>
     </Card>
     );
  }
